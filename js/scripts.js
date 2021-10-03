@@ -198,7 +198,7 @@ $(document).ready(function() {
         $('a[href^="#"]').removeClass("active");
         if( hrefAttr.length > 0 && hrefAttr != "#" ) {
             $('html, body').stop().animate({
-                'scrollTop': $(hrefAttr).offset().top+2
+                'scrollTop': $(hrefAttr).offset().top-30
             }, 500);
             $(this).addClass("active");
         }
