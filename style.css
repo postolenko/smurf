@@ -1230,6 +1230,11 @@ div.svg div.rateit-preset {
     background: -webkit-linear-gradient(-90deg, #48D1EC 0%, #387EB6 100%);
 }
 
+.thumb_4:hover label .inner {
+    background: linear-gradient(-90deg, #48D1EC 0%, #387EB6 100%);
+    background: -webkit-linear-gradient(-90deg, #48D1EC 0%, #387EB6 100%);
+}
+
 .thumb_4 input {
     width: 0;
     height: 0;

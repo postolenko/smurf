@@ -182,7 +182,7 @@
 
 	.article_2 > .right {
 	    width: 100%;
-	    padding: 24px 0;
+	    padding: 20px 0 10px 0;
 	}
 
 	.img_wrapp_descript {
@@ -437,6 +437,10 @@
 
 	.slider_1 .slick-slide.slick-active + .slick-slide {
 	    opacity: .5;
+	}
+
+	.screen_3 {
+	    padding: 112px 0 32px 0;
 	}
 
 	.thumb_3 {
