@@ -1,8 +1,10 @@
 function getSlider1PaddingLeft() {
-    leftOffset = $(".leftOffset").offset().left;
-    $(".slider_1_wrapp").css({
-        "padding-left" : leftOffset - 10 + "px"
-    });
+    if($(".slider_1_wrapp").length > 0) {
+        leftOffset = $(".leftOffset").offset().left;
+        $(".slider_1_wrapp").css({
+            "padding-left" : leftOffset - 10 + "px"
+        });
+    }
 }
 
 function getWrappPadding() {
@@ -19,21 +21,17 @@ function getAnimation() {
   });
 }
 
-function getActiveMenu() {
-    
-}
-
 var w = window,
 d = document,
 e = d.documentElement,
 g = d.getElementsByTagName('body')[0],
 bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
 
-
 $(window).load(function() {
 });
 
 $(window).resize(function() {
+    bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
     getSlider1PaddingLeft();
     getWrappPadding();
     getAnimation();
@@ -188,7 +186,9 @@ $(document).ready(function() {
 
     // ---------
 
-    $('.rateit').rateit({max: 5});
+    if($('.rateit').length > 0) {
+        $('.rateit').rateit({max: 5});
+    }
 
     // ---------
 
@@ -202,9 +202,34 @@ $(document).ready(function() {
             }, 500);
             $(this).addClass("active");
         }
-        if($("#respNav").hasClass("visible") && $(".resp_bg").hasClass("visible")) {
-          $("#respNav").removeClass("visible");
-          $(".resp_bg").removeClass("visible");
+        if($("#resp_nav").is(":visible") && bodyWidth <= 767) {
+          $("#resp_nav").fadeOut(300);
+          $(".respmenubtn").removeClass("active");
+        }
+    });
+
+    // ---------
+
+    $(".respmenubtn").click(function(e) {
+      e.preventDefault();
+      if( $("#resp_nav").is(":hidden") ) {
+          $("#resp_nav").fadeIn(300);
+          $(this).addClass("active");
+      } else {
+          $("#resp_nav").fadeOut(300);
+          $(this).removeClass("active");
+      }
+    });
+    $(".close_nav").click(function(e) {
+      e.preventDefault();
+      $("#resp_nav").fadeOut(300);
+    });
+    $(this).keydown(function(eventObject){
+        if (eventObject.which == 27 &&
+            $("#resp_nav").is(":visible") &&
+            bodyWidth <= 767) {
+                $("#resp_nav").fadeOut(300);
+                $(".respmenubtn").removeClass("active");
         }
     });
 
